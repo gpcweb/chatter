@@ -80,3 +80,11 @@ form.link, form.button {
     border-bottom: 0;
   }
 }
+
+#message-list {
+  border: 1px solid #777;
+  height: 300px;
+  padding: 10px;
+  overflow: scroll;
+  margin-bottom: 25px;
+}
