@@ -38,5 +38,5 @@ config :coherence,
 
 config :coherence, Chatter.Coherence.Mailer,
   adapter: Swoosh.Adapters.Sendgrid,
-  api_key: {:system, "SENDGRID_API_KEY"}
+  api_key: {:system, "API_KEY"}
 # %% End Coherence Configuration %%
