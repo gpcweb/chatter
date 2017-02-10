@@ -32,11 +32,11 @@ config :coherence,
   repo: Chatter.Repo,
   module: Chatter,
   logged_out_url: "/",
-  email_from_name: "Your Name",
-  email_from_email: "yourname@example.com",
+  email_from_name: "Chatter CL",
+  email_from_email: "no-reply@chatter.cl",
   opts: [:authenticatable, :recoverable, :lockable, :trackable, :unlockable_with_token, :confirmable, :registerable]
 
 config :coherence, Chatter.Coherence.Mailer,
   adapter: Swoosh.Adapters.Sendgrid,
-  api_key: "your api key here"
+  api_key: System.get_env("SENDGRID_API_KEY")
 # %% End Coherence Configuration %%
