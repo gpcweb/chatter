@@ -20,6 +20,7 @@
               <%= if @conn.assigns[:remembered] do %>
                 <li style="color: red;">!!</li>
               <% end %>
+              <li><%= Chatter.Coherence.ViewHelpers.signout_link(@conn) %></li>
             <% else %>
               <%= Chatter.Coherence.ViewHelpers.coherence_links(@conn, :layout) %>
             <% end %>
