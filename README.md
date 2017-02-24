@@ -15,31 +15,33 @@ The master branch is configured to run production on heroku, if you want to depl
 
 I'm using nginx as reverse proxy to serve my phoenix app and this is my chatter.conf file under `/etc/nginx/sites-availables`, remember that this file must be copied to `/etc/nginx/sites-enabled` as a symbolic link, and that you need to run `sudo service nginx reload`:
 
-`  upstream hello_phoenix {
-      server 127.0.0.1:4001;
+```  
+  upstream hello_phoenix {
+    server 127.0.0.1:4001;
   }
 
   map $http_upgrade $connection_upgrade {
-      default upgrade;
-      '' close;
+    default upgrade;
+    '' close;
   }
 
-  server{
-    listen 80;
-    server_name chatter.cl;
+ server{
+   listen 80;
+   server_name chatter.cl;
 
-    location / {
-        try_files $uri @proxy;
-    }
+   location / {
+     try_files $uri @proxy;
+   }
 
-    location @proxy {
-        include proxy_params;
-        proxy_redirect off;
-        proxy_pass http://hello_phoenix;
-        proxy_set_header Upgrade $http_upgrade;
-        proxy_set_header Connection $connection_upgrade;
-    }
-  }`
+   location @proxy {
+     include proxy_params;
+     proxy_redirect off;
+     proxy_pass http://hello_phoenix;
+     proxy_set_header Upgrade $http_upgrade;
+     proxy_set_header Connection $connection_upgrade;
+   }
+ }
+ ``` 
 
 Now we need to make some configurations before deploy our app:
 
