@@ -51,7 +51,7 @@ Now we need to make some configurations before deploy our app:
    * DATABASE_USERNAME
    * DATABASE_PASSWORD
    * API_KEY (I'm using sengrid to send coherence email, so this is the sendgrid api_key)
-    * SECRET_KEY_BASE (Just run `mix phoenix.gen.secret)
+   * SECRET_KEY_BASE (Just run `mix phoenix.gen.secret)
   * Then you need to build the release with
    * `./node_modules/brunch/bin/brunch b -p && MIX_ENV=prod mix do phoenix.digest, release --env=prod`
   * Your release will be placed on
@@ -59,10 +59,10 @@ Now we need to make some configurations before deploy our app:
   * Now you must copy the chatter.tar.gz file to your production machine with (replace this 127.0.0.1 address with yours):
    * `scp chatter.tar.gz deploy@127.0.0.1:/home/your_user/production.chatter.cl/`
   * Now log in on your production machine and decompress the tar.gz file like this
-   * `cd production.chatter.cl`
-   * `tar xzf chatter.tar.gz`
+   * `cd production.chatter.cl`
+   * `tar xzf chatter.tar.gz`
   * Finally you can check your release with
-   * ` ./bin/chatter foreground`
+   * ` ./bin/chatter foreground`
   * If everything is ok you will see some logs to shut it down just press ctrl + c
   * Now just hit `./bin/chatter start` and this will start your phoenix app on http://localhost:4001
 
