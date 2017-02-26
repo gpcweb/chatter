@@ -1,0 +1,39 @@
+APP="chatter"
+
+BUILD_HOST="52.25.81.223"
+BUILD_USER="deploy"
+BUILD_AT="/home/deploy/production.chatter.cl/builds"
+
+PRODUCTION_HOSTS="52.25.81.223"
+PRODUCTION_USER="deploy"
+DELIVER_TO="/home/deploy/production.chatter.cl"
+
+pre_erlang_clean_compile() {
+  status "Installing NPM dependencies"
+  __sync_remote "
+    [ -f ~/.profile ] && source ~/.profile
+    set -e
+
+    cd '$BUILD_AT'
+    npm install $SILENCE
+  "
+
+  status "Building static files"
+  __sync_remote "
+    [ -f ~/.profile ] && source ~/.profile
+    set -e
+
+    cd '$BUILD_AT'
+    mkdir -p priv/static
+    npm run deploy $SILENCE
+  "
+
+  status "Running phoenix.digest"
+  __sync_remote "
+    [ -f ~/.profile ] && source ~/.profile
+    set -e
+
+    cd '$BUILD_AT'
+    APP='$APP' MIX_ENV='$TARGET_MIX_ENV' $MIX_CMD phoenix.digest $SILENCE
+  "
+}
