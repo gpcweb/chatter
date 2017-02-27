@@ -74,11 +74,11 @@ Master branch has been updated to use distillery and edeliver. To use edeliver y
    * `sudo apt-get install node`
    * `sudo apt-get install npm`
   * Install git
-   * `sudo apt-get -y install git
+   * `sudo apt-get -y install git`
   * Add erlang solutions repo
-   * `wget https://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb && sudo dpkg -i erlang-solutions_1.0_all.deb
+   * `wget https://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb && sudo dpkg -i erlang-solutions_1.0_all.deb`
   * Update ubuntu
-   * `sudo apt-get update
+   * `sudo apt-get update`
   * Install erlang
    * `sudo apt-get install esl-erlang`
   * Install elixir
