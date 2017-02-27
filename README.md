@@ -68,24 +68,24 @@ Now we need to make some configurations before deploy our app:
 
 # Update Production
 
-Master branch has been updated to use distillery and edeliver. To user edeliver you must provide on your build machine all the enviroment variables described before and install this depedencies:
+Master branch has been updated to use distillery and edeliver. To use edeliver you must provide on your build machine all the enviroment variables described before (we asume that the enviroment variables from your build machine apply to your production machine, database_host, database_name, secret, etc) and install this depedencies:
 
-  Update/install node and npm to the last version available
+  * Update/install node and npm to the last version available
    * `sudo apt-get install node`
    * `sudo apt-get install npm`
-  Install git
+  * Install git
    * `sudo apt-get -y install git
-  Add erlang solutions repo
+  * Add erlang solutions repo
    * `wget https://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb && sudo dpkg -i erlang-solutions_1.0_all.deb
-  Update ubuntu
+  * Update ubuntu
    * `sudo apt-get update
-  Install erlang
+  * Install erlang
    * `sudo apt-get install esl-erlang`
-  Install elixir
+  * Install elixir
    * `sudo apt-get install elixir`
-  Install hex
+  * Install hex
    * `mix local.hex`
-  Install phoenix
+  * Install phoenix
   * `mix archive.install https://github.com/phoenixframework/archives/raw/master/phoenix_new.ez`
 
 Ready to go?
