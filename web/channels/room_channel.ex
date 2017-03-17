@@ -19,7 +19,8 @@ defmodule Chatter.RoomChannel do
     broadcast! socket, "message:new", %{
       user: socket.assigns.user,
       body: message,
-      timestamp: :os.system_time(:milli_seconds)
+      timestamp: :os.system_time(:milli_seconds),
+      node: System.get_env("NODE")
     }
     {:noreply, socket}
   end

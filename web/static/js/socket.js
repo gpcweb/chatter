@@ -113,7 +113,7 @@ let renderMessage = (message) => {
   let messageElement = document.createElement("li")
   messageElement.innerHTML = `
     <b>${message.user}</b>
-    <i>${formatTimestamp(message.timestamp)}</i>
+    <i>${formatTimestamp(message.timestamp)} - ${message.node}</i>
     <p>${message.body}</p>
   `
   messageList.appendChild(messageElement)
