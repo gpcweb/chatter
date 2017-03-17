@@ -4,9 +4,11 @@ BUILD_HOST="52.25.81.223"
 BUILD_USER="deploy"
 BUILD_AT="/home/deploy/production.chatter.cl/builds"
 
-PRODUCTION_HOSTS="52.25.81.223"
+PRODUCTION_HOSTS="52.25.81.223 54.202.55.25"
 PRODUCTION_USER="deploy"
 DELIVER_TO="/home/deploy/production.chatter.cl"
+
+LINK_VM_ARGS="/home/deploy/vm.args"
 
 pre_erlang_clean_compile() {
   status "Installing NPM dependencies"
