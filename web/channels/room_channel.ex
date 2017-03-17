@@ -20,7 +20,7 @@ defmodule Chatter.RoomChannel do
       user: socket.assigns.user,
       body: message,
       timestamp: :os.system_time(:milli_seconds),
-      node: System.get_env("NODE")
+      node: System.get_env("NODE") || "node99"
     }
     {:noreply, socket}
   end
