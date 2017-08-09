@@ -104,6 +104,34 @@ We can check that everything went well by using edeliver to ping our application
 
 If our application is up and running, we should receive a pong reply to our ping.
 
+# Update production configuration
+
+Now the app was updated to deploy to more than one server, you only need to add the new ip or domain to the PRODUCTION_HOSTS variable on .deliver/config file.
+
+Also the it was updated to connect nodes, you only have to configure two files on each production machine:
+
+Configuration of node1 vm.args
+`
+-name node1@1.1.1.1
+-setcookie your_secret
+-kernel inet_dist_listen_min 9100 inet_dist_listen_max 9155
+-config /home/deploy/app.config
+`
+
+Configuration of node1 app.config
+`
+[{kernel,
+  [
+    {sync_nodes_optional, ['node2@1.1.1.2']},
+    {sync_nodes_timeout, 30000}
+  ]}
+].
+`
+
+Its very important that node1 needs to be aware of node2 and viceversa on the app.config file, each file must live on /home/your_user/ folder unless you declare something different on .deliver/config LINK_VM_ARGS variable.
+
+Finally on each machine security group you have to open the port 4369 and from 9100 to 9155.
+
 ## Learn more
 
   * Official website: http://www.phoenixframework.org/
