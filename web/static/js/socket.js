@@ -103,7 +103,7 @@ room.join()
 let messageInput = document.getElementById("new-message")
 messageInput.addEventListener("keypress", (e) => {
   if (e.keyCode == 13 && messageInput.value != "") {
-    room.push("message:new", messageInput.value)
+    room.push("message:new", { "body": messageInput.value } )
     messageInput.value = ""
   }
 })

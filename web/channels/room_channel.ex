@@ -15,10 +15,10 @@ defmodule Chatter.RoomChannel do
     {:noreply, socket}
   end
 
-  def handle_in("message:new", message, socket) do
+  def handle_in("message:new", %{ "body" => body }, socket) do
     broadcast! socket, "message:new", %{
       user: socket.assigns.user,
-      body: message,
+      body: body,
       timestamp: :os.system_time(:milli_seconds),
       node: System.get_env("NODE") || "node99"
     }
