@@ -1,6 +1,8 @@
 defmodule Chatter.User do
   use Chatter.Web, :model
   use Coherence.Schema
+  alias Chatter.User
+  alias Chatter.Repo
 
   schema "users" do
     field :name, :string
@@ -19,5 +21,12 @@ defmodule Chatter.User do
     |> cast(params, [:name, :last_name, :email] ++ coherence_fields)
     |> validate_required([:name, :last_name, :email])
     |> validate_coherence(params)
+  end
+
+  def find_by(column, value) do
+    User
+    |> where([u], field(u, ^column) == ^value)
+    |> first
+    |> Repo.one
   end
 end
