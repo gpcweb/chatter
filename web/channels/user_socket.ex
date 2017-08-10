@@ -19,8 +19,14 @@ defmodule Chatter.UserSocket do
   #
   # See `Phoenix.Token` documentation for examples in
   # performing token verification on connect.
-  def connect(%{"user" => user}, socket) do
-    {:ok, assign(socket, :user, user)}
+  def connect(%{"token" => token}, socket) do
+    case Phoenix.Token.verify(socket, "UserAuth", token) do
+      {:ok, user_id} ->
+        socket = assign(socket, :user, Chatter.Repo.get!(Chatter.User, user_id).name)
+        {:ok, socket}
+      {:error, _} ->
+        :error
+    end
   end
 
   # Socket id's are topics that allow you to identify all sockets for a given user:

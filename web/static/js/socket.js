@@ -6,7 +6,12 @@
 import {Socket, Presence} from "phoenix"
 
 let user   = document.getElementById("user").innerText
-let socket = new Socket("/socket", {params: {user: user}})
+let socket = new Socket("/socket", {
+    params: {
+      token:
+      document.querySelector("meta[name=user_token]").content
+    }
+  })
 
 // When you connect, you'll often need to authenticate the client.
 // For example, imagine you have an authentication plug, `MyAuth`,

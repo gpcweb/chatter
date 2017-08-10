@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
+    <%= if Coherence.current_user(@conn) do %>
+      <%= tag :meta, name: "user_token", content: Phoenix.Token.sign(@conn, "UserAuth", Coherence.current_user(@conn).id) %>
+    <% end %>
 
     <title>Hello Chatter!</title>
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
