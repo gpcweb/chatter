@@ -47,7 +47,9 @@ defmodule Chatter.Router do
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", Chatter do
-  #   pipe_through :api
-  # end
+  scope "/api", Chatter do
+    pipe_through :api
+
+    post "/log_in", UserController, :log_in
+  end
 end
