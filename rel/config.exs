@@ -28,7 +28,7 @@ environment :dev do
 end
 
 environment :prod do
-  set include_erts: true
+  set include_erts: false
   set include_src: false
   set cookie: :"DjVf@!H7l4CQ,1*GVE{K&U^At07@fmk.h}%(>]dolr|Oz?3:9p|*StV|!4&:O$ul"
   plugin Releases.Plugin.LinkConfig
