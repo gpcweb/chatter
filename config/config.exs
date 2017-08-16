@@ -33,7 +33,7 @@ config :coherence,
   module: Chatter,
   logged_out_url: "/",
   email_from_name: "Chatter",
-  email_from_email: "no-reply@scout-chatter.herokuapp.com",
+  email_from_email: "no-reply@chatter.coor.cl",
   opts: [:authenticatable, :recoverable, :lockable, :trackable, :unlockable_with_token, :confirmable, :registerable]
 
 config :coherence, Chatter.Coherence.Mailer,
