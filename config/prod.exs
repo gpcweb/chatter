@@ -13,7 +13,7 @@ use Mix.Config
 # which you typically run after static files are built.
 config :chatter, Chatter.Endpoint,
   http: [port: 4001],
-  url: [host: "http://chatter.coor.cl"],
+  url: [host: "chatter.coor.cl", port: 80],
   check_origin: false,
   cache_static_manifest: "priv/static/manifest.json",
   server: true,
