@@ -8,6 +8,7 @@ defmodule Chatter.User do
     field :name, :string
     field :last_name, :string
     field :email, :string
+    field :token, :string, virtual: true
     coherence_schema
 
     timestamps()

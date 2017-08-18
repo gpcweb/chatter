@@ -1,15 +1,15 @@
 defmodule Chatter.UserView do
   use Chatter.Web, :view
 
-  def render("show.json", %{user: user, token: token}) do
-    %{data: render_one(user, token, Chatter.UserView, "user.json")}
+  def render("user.json", user) do
+    %{ id: user.id,
+       name: user.name,
+       last_name: user.last_name,
+       email: user.email,
+       token: user.token }
   end
 
-  def render("user.json", %{user: user, token: token}) do
-    %{id: user.id,
-      name: user.name,
-      last_name: user.last_name,
-      email: user.email,
-      token: token}
+  def render("error.json", _assigns) do
+    %{ message: "Unable to authenticate, please check email and password." }
   end
 end
